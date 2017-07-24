@@ -17,6 +17,7 @@ def print_help():
     print("f x:\tforward x seconds")
     print("b x:\tbackstep x seconds")
     print("pause:\tpause")
+    print("play:\tplay")
     print("q:\tquit")
 
 chromecasts = pychromecast.get_chromecasts()
@@ -44,3 +45,5 @@ if len(chromecasts) == 1:
             backward(time[1])
         elif command == "pause":
             mc.pause()
+        elif command == "play":
+            mc.play()
