@@ -9,6 +9,7 @@ def forward(time_diff):
     if time_diff.endswith("m"):
         time_diff = float(time_diff.replace("m", "")) * 60
 
+    refresh_status()
     time = mc.status.current_time
     mc.seek(time + float(time_diff))
 
@@ -18,10 +19,16 @@ def backward(time_diff):
     if time_diff.endswith("m"):
         time_diff = float(time_diff.replace("m", "")) * 60
 
+    refresh_status()
     time = mc.status.current_time
     mc.seek(time - float(time_diff))
 
+def refresh_status():
+    cast.media_controller.update_status()
+
 def status():
+    refresh_status()
+
     print(str(datetime.timedelta(seconds=mc.status.current_time)))
 
 def print_help():
