@@ -31,7 +31,7 @@ if len(chromecasts) == 1:
     mc.block_until_active()
 
     while True:
-        command = raw_input("> ")
+        command = input("> ")
 
         if command == "q":
             break
